@@ -6,17 +6,31 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* generic flexbox class */
 .row {
     display: flex;
 }
 
+/* remove underline from links */
 a {
     text-decoration: none;
 }
 
+/* navbar with highscores and timer */
 header nav {
     justify-content: space-between;
     margin: 10px;
     padding: 5px;
     border: 3px solid red;
+}
+
+/* start page section */
+div.row {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* add top/bottom margin to the start page h1, p, button */
+div.row > * {
+    margin: 5px 0px;
 }
