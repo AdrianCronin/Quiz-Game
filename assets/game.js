@@ -1,6 +1,6 @@
-// start button hides starting page section and shows quiz section
 var startButton = document.querySelector("#startButton");
 
+// start button hides starting page section and shows quiz section
 startButton.addEventListener("click", function(event) {
     console.log("start button worked");
     startPage.setAttribute("style", "display: none;");
