@@ -7,6 +7,8 @@ startButton.addEventListener("click", function(event) {
     questionPage.setAttribute("style", "display: block;");
 });
 
+// 
+
 
 // test area
 var button1 = document.querySelector("#testButton1");
