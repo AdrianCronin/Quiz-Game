@@ -38,6 +38,7 @@ var answerBEl = document.getElementById("answerB");
 var answerCEl = document.getElementById("answerC"); 
 var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.querySelector("#startButton");
+var timerTextEl = document.getElementById("timerText");
 
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
@@ -47,7 +48,10 @@ function renderCurrentQuestion() {
     answerCEl.textContent = quizQuestions[questionIndex].c;
     answerDEl.textContent = quizQuestions[questionIndex].d;
 };
-renderCurrentQuestion();
+renderCurrentQuestion(); // delete this later
+
+// this function is the timer
+
 
 
 // start button hides starting page section and shows quiz section
