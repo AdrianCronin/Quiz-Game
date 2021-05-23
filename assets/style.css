@@ -13,7 +13,7 @@
 
 /* hiding non-start page sections */
 #questionPage, #submitPage {
-    display: block;
+    display: none;
 }
 
 /* remove underline from links */

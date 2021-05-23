@@ -50,7 +50,6 @@ function renderCurrentQuestion() {
     answerDEl.textContent = quizQuestions[questionIndex].d;
 };
 renderCurrentQuestion(); // delete this later
-countDown(); // delete this later
 
 // this function is the timer
 function countDown () {
@@ -62,18 +61,15 @@ function countDown () {
             clearInterval(timerInterval);
             // run end game function
         }
-
     }, 1000);
-
 };
 
 
 // start button hides starting page section and shows quiz section
 startButtonEl.addEventListener("click", function(event) {
-    console.log("start button worked");
     startPage.style.display = "none";
-    // startPage.setAttribute("style", "display: none;");
-    questionPage.setAttribute("style", "display: block;");
+    questionPage.style.display = "block";
+    countDown();
 });
 
 
