@@ -42,6 +42,7 @@ var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.getElementById("startButton");
 var submitButtonEl = document.getElementById("submitButton");
 var timerTextEl = document.getElementById("timerText");
+var endScoreEl = document.getElementById("endScore");
 var currentCorrectAns = ""; // store the current questions correct answer
 var userSelectedAns = ""; // store the users selected answer
 var timerInterval; // store the interval 
@@ -63,6 +64,7 @@ function endGame (){
     clearInterval(timerInterval);
     secondsLeft = 0;
     timerTextEl.textContent = "Timer: " + secondsLeft;
+    endScoreEl.textContent = "Your Score: " + score;
     // submitPage.style.display = "block";
     // questionPage.style.display = "none";
 };
