@@ -48,15 +48,15 @@ var userSelectedAns = ""; // store the users selected answer
 function answerQuestion (user, answer) {
 
     if (user === answer){
-        console.log("YOU DID IT CORRECTLY");
+        console.log("YOU DID IT CORRECTLY"); //delete
         score += secondsLeft;
     } else {
-        console.log("YOU FAILED MISERABLY");
+        console.log("YOU FAILED MISERABLY"); //delete
         secondsLeft -= 15;
     }
     questionIndex++; // add check if at max index or 
     if (questionIndex === quizQuestions.length) {
-        console.log("End Game function");
+        console.log("End Game function"); //delete
         // run end game function
     } else {
         renderCurrentQuestion();
@@ -77,11 +77,11 @@ function renderCurrentQuestion() {
 function startTimer () {
     var timerInterval = setInterval(function() {
         secondsLeft--;
-        console.log("Current score is " + score);
+        console.log("Current score is " + score); //delete
         timerTextEl.textContent = "Timer: " + secondsLeft;
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
-            console.log("End Game function");
+            console.log("End Game function"); //delete
             // run end game function
         }
     }, 1000);
@@ -105,22 +105,22 @@ startButtonEl.addEventListener("click", function() {
 answerAEl.addEventListener("click", function() {
     userSelectedAns = 'a';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);
+    console.log(userSelectedAns); //delete
 });
 answerBEl.addEventListener("click", function() {
     userSelectedAns = 'b';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);
+    console.log(userSelectedAns);//delete
 });
 answerCEl.addEventListener("click", function() {
     userSelectedAns = 'c';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);
+    console.log(userSelectedAns);//delete
 });
 answerDEl.addEventListener("click", function() {
     userSelectedAns = 'd';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);
+    console.log(userSelectedAns);//delete
 });
 
 
