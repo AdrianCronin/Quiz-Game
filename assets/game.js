@@ -30,6 +30,7 @@ var quizQuestions = [
     }
 ];
 
+var secondsLeft = 100;
 var questionIndex = 0;
 var questionContainerEl = document.getElementById("questionContainer");
 var questionTextEl = document.getElementById("questionText");
@@ -49,9 +50,22 @@ function renderCurrentQuestion() {
     answerDEl.textContent = quizQuestions[questionIndex].d;
 };
 renderCurrentQuestion(); // delete this later
+countDown(); // delete this later
 
 // this function is the timer
+function countDown () {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timerTextEl.textContent = "Timer: " + secondsLeft;
 
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            // run end game function
+        }
+
+    }, 1000);
+
+};
 
 
 // start button hides starting page section and shows quiz section
