@@ -71,7 +71,6 @@ function startGame() {
     secondsLeft = 100;
     renderCurrentQuestion();
     startTimer();
-
 }
 
 // start button hides starting page section and shows quiz section
