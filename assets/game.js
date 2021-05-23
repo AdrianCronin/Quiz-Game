@@ -38,7 +38,7 @@ button1.addEventListener("click", function(event){
     // set starting `score`
     // start the timer counting down
 
-// create `answerQuestion` function
+// create `answerQuestion` function (listen from a parent element)
     // get the value associated with the clicked `button`
     // compare against correct answer for the current question
         // if correct...
