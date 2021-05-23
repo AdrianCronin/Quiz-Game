@@ -8,21 +8,6 @@ startButton.addEventListener("click", function(event) {
     questionPage.setAttribute("style", "display: block;");
 });
 
-// 
-
-
-// test area
-var button1 = document.querySelector("#testButton1");
-var testDivEl = document.querySelector("#testDiv");
-
-button1.addEventListener("click", function(event){
-    console.log("Button 1 worked");
-    if (testDivEl.style.display == "none") {
-        testDivEl.style.display = "flex";
-    } else {
-        testDivEl.style.display = "none";
-    }
-});
 
 // declare variables and arrays of quiz questions
 // declare a `questionIndex` to point to the current question
