@@ -48,22 +48,24 @@ var userSelectedAns = ""; // store the users selected answer
 var timerInterval; // store the interval 
 
 
-// TODO: create `endGame` function
+// Runs when submit button or enter is pressed
+submitButtonEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+    // save initials to object?
+    // save score to object?
+    // got to highscores page
+});
+
+//create `endGame` function
     // clears timer
     // hides the quiz page
     // shows the game over screen
     // shows final score
     // takes user input and saves to highscore page
-submitButtonEl.addEventListener("click", function(event) {
-    event.preventDefault();
-    endGame();
-});
-
 function endGame (){
+    clearInterval(timerInterval);
     submitPage.style.display = "block";
     questionPage.style.display = "none";
-    console.log("Endgame function called");
-    clearInterval(timerInterval);
     secondsLeft = 0;
     timerTextEl.textContent = "Timer: " + secondsLeft;
     endScoreEl.textContent = "Your Score: " + score;
