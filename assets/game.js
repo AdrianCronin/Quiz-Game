@@ -41,7 +41,6 @@ var answerCEl = document.getElementById("answerC");
 var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.getElementById("startButton");
 var timerTextEl = document.getElementById("timerText");
-
 var currentCorrectAns = ""; // store the current questions correct answer
 var userSelectedAns = ""; // store the users selected answer
 
@@ -128,8 +127,12 @@ answerDEl.addEventListener("click", function() {
 // declare variables and arrays of quiz questions
 // declare a `questionIndex` to point to the current question
 
-// create `endGame` function
+// TODO: create `endGame` function
     // clears timer
+    // hides the quiz page
+    // shows the game over screen
+    // shows final score
+    // takes user input and saves to highscore page
 
 // Create `startGame` function
     // call `startTimer`
