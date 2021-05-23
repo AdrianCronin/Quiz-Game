@@ -40,9 +40,27 @@ var answerBEl = document.getElementById("answerB");
 var answerCEl = document.getElementById("answerC"); 
 var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.getElementById("startButton");
+var submitButtonEl = document.getElementById("submitButton");
 var timerTextEl = document.getElementById("timerText");
 var currentCorrectAns = ""; // store the current questions correct answer
 var userSelectedAns = ""; // store the users selected answer
+
+// TODO: create `endGame` function
+    // clears timer
+    // hides the quiz page
+    // shows the game over screen
+    // shows final score
+    // takes user input and saves to highscore page
+submitButtonEl.addEventListener("click", function() {
+    endGame();
+});
+
+function endGame (){
+    submitPage.style.display = "block";
+    // questionPage.style.display = "none";
+    clearInterval();
+};
+
 
 // function will compare the selected answer to the correct answer
 function answerQuestion (user, answer) {
@@ -95,7 +113,7 @@ function startGame() {
     questionIndex = 0;
     startTimer();
     renderCurrentQuestion();
-}
+};
 
 // start button runs the startGame fuction when clicked
 startButtonEl.addEventListener("click", function() {
@@ -126,13 +144,6 @@ answerDEl.addEventListener("click", function() {
 
 // declare variables and arrays of quiz questions
 // declare a `questionIndex` to point to the current question
-
-// TODO: create `endGame` function
-    // clears timer
-    // hides the quiz page
-    // shows the game over screen
-    // shows final score
-    // takes user input and saves to highscore page
 
 // Create `startGame` function
     // call `startTimer`
