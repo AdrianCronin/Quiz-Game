@@ -70,18 +70,16 @@ function endGame (){
 
 // function will compare the selected answer to the correct answer
 function answerQuestion (user, answer) {
-
+    // adds points to score if correct, removes time left if incorrect.
     if (user === answer){
-        console.log("YOU DID IT CORRECTLY"); //delete
         score += secondsLeft;
     } else {
-        console.log("YOU FAILED MISERABLY"); //delete
         secondsLeft -= 15;
     }
-    questionIndex++; // add check if at max index or 
+    questionIndex++; // moves pointer to next question
+    // if the pointer moves past the last question go to end game screen otherwise go to next question
     if (questionIndex === quizQuestions.length) {
-        console.log("End Game function"); //delete
-        // run end game function
+        endGame();
     } else {
         renderCurrentQuestion();
     }
@@ -104,7 +102,6 @@ function startTimer () {
         console.log("Current score is " + score); //delete
         timerTextEl.textContent = "Timer: " + secondsLeft;
         if (secondsLeft <= 0) {
-            clearInterval(timerInterval);
             endGame();
         };
     }, 1000);
@@ -128,22 +125,18 @@ startButtonEl.addEventListener("click", function() {
 answerAEl.addEventListener("click", function() {
     userSelectedAns = 'a';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns); //delete
 });
 answerBEl.addEventListener("click", function() {
     userSelectedAns = 'b';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);//delete
 });
 answerCEl.addEventListener("click", function() {
     userSelectedAns = 'c';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);//delete
 });
 answerDEl.addEventListener("click", function() {
     userSelectedAns = 'd';
     answerQuestion(userSelectedAns, currentCorrectAns);
-    console.log(userSelectedAns);//delete
 });
 
 
