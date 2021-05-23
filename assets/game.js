@@ -75,6 +75,8 @@ function answerQuestion (user, answer) {
         console.log("YOU DID IT CORRECTLY");
         // TODO: add points
         score += secondsLeft;
+        questionIndex++;
+        renderCurrentQuestion();
         // TODO: move on to next question
     } else {
         console.log("YOU FAILED MISERABLY");
@@ -86,6 +88,7 @@ function answerQuestion (user, answer) {
 
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
+    // TODO: add check on quiz index, endgame if at max index
     currentCorrectAns = quizQuestions[questionIndex].correct;
     questionTextEl.textContent = quizQuestions[questionIndex].question; // injects the question into the h1 element
     answerAEl.textContent = quizQuestions[questionIndex].a; // injects the answers into the buttons
@@ -112,6 +115,7 @@ function startGame() {
     startPage.style.display = "none";
     questionPage.style.display = "block";
     secondsLeft = 100;
+    questionIndex = 0;
     renderCurrentQuestion();
     startTimer();
 }
