@@ -51,14 +51,16 @@ var userSelectedAns = ""; // store the users selected answer
     // shows the game over screen
     // shows final score
     // takes user input and saves to highscore page
-submitButtonEl.addEventListener("click", function() {
+submitButtonEl.addEventListener("click", function(event) {
+    event.preventDefault();
     endGame();
 });
 
 function endGame (){
-    submitPage.style.display = "block";
-    // questionPage.style.display = "none";
+    console.log("Endgame function called");
     clearInterval();
+    // submitPage.style.display = "block";
+    // questionPage.style.display = "none";
 };
 
 
@@ -99,9 +101,8 @@ function startTimer () {
         timerTextEl.textContent = "Timer: " + secondsLeft;
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
-            console.log("End Game function"); //delete
-            // run end game function
-        }
+            endGame();
+        };
     }, 1000);
 };
 
