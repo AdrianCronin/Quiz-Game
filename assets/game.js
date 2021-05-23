@@ -64,12 +64,19 @@ function startTimer () {
     }, 1000);
 };
 
-
-// start button hides starting page section and shows quiz section
-startButtonEl.addEventListener("click", function(event) {
+// this function starts the game, hides the starting page and calls the timer function
+function startGame() {
     startPage.style.display = "none";
     questionPage.style.display = "block";
+    secondsLeft = 100;
+    renderCurrentQuestion();
     startTimer();
+
+}
+
+// start button hides starting page section and shows quiz section
+startButtonEl.addEventListener("click", function() {
+    startGame();
 });
 
 
