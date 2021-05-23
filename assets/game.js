@@ -40,17 +40,20 @@ var answerBEl = document.getElementById("answerB");
 var answerCEl = document.getElementById("answerC"); 
 var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.getElementById("startButton");
-var submitButtonEl = document.getElementById("submitButton");
+var submitFormEl = document.getElementById("submitForm");
 var timerTextEl = document.getElementById("timerText");
 var endScoreEl = document.getElementById("endScore");
+var scoreInitialsEl = document.getElementById("scoreInitials");
 var currentCorrectAns = ""; // store the current questions correct answer
 var userSelectedAns = ""; // store the users selected answer
 var timerInterval; // store the interval 
 
 
 // Runs when submit button or enter is pressed
-submitButtonEl.addEventListener("submit", function(event) {
+submitFormEl.addEventListener("submit", function(event) {
     event.preventDefault();
+    var userInitials = scoreInitialsEl.value.trim();
+    console.log(userInitials);
     // save initials to object?
     // save score to object?
     // got to highscores page
@@ -70,7 +73,6 @@ function endGame (){
     timerTextEl.textContent = "Timer: " + secondsLeft;
     endScoreEl.textContent = "Your Score: " + score;
 };
-
 
 // function will compare the selected answer to the correct answer
 function answerQuestion (user, answer) {
