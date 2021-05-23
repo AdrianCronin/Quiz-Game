@@ -6,6 +6,11 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* border around body for visualization delete later */
+body {
+    border: 3px solid rgb(255, 0, 212);
+}
+
 /* generic flexbox class */
 .row {
     display: flex;

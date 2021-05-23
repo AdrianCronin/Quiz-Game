@@ -42,11 +42,67 @@ var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.getElementById("startButton");
 var timerTextEl = document.getElementById("timerText");
 
-// TODO: create a function that stores the user input and compares it to the current correct answer
 var currentCorrectAns = ""; // store the current questions correct answer
 var userSelectedAns = ""; // store the users selected answer
 
-// store users answer on button press
+// function will compare the selected answer to the correct answer
+function answerQuestion (user, answer) {
+
+    if (user === answer){
+        console.log("YOU DID IT CORRECTLY");
+        score += secondsLeft;
+    } else {
+        console.log("YOU FAILED MISERABLY");
+        secondsLeft -= 15;
+    }
+    questionIndex++; // add check if at max index or 
+    if (questionIndex === quizQuestions.length) {
+        console.log("End Game function");
+        // run end game function
+    } else {
+        renderCurrentQuestion();
+    }
+};
+
+// this function takes the current question data from the quiz questions array and displays it on the page
+function renderCurrentQuestion() {
+    currentCorrectAns = quizQuestions[questionIndex].correct;
+    questionTextEl.textContent = quizQuestions[questionIndex].question; // injects the question into the h1 element
+    answerAEl.textContent = quizQuestions[questionIndex].a; // injects the answers into the buttons
+    answerBEl.textContent = quizQuestions[questionIndex].b;
+    answerCEl.textContent = quizQuestions[questionIndex].c;
+    answerDEl.textContent = quizQuestions[questionIndex].d;
+};
+
+// this function counts the timer down and displays it in the top
+function startTimer () {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        console.log("Current score is " + score);
+        timerTextEl.textContent = "Timer: " + secondsLeft;
+        if (secondsLeft <= 0) {
+            clearInterval(timerInterval);
+            console.log("End Game function");
+            // run end game function
+        }
+    }, 1000);
+};
+
+// this function starts the game, hides the starting page and calls the timer function
+function startGame() {
+    startPage.style.display = "none";
+    questionPage.style.display = "block";
+    secondsLeft = 100;
+    questionIndex = 0;
+    startTimer();
+    renderCurrentQuestion();
+}
+
+// start button runs the startGame fuction when clicked
+startButtonEl.addEventListener("click", function() {
+    startGame();
+});
+// store users answer on button press and runs the answerQuestion function passing the user selected answer and the correct answer from the array as arguments
 answerAEl.addEventListener("click", function() {
     userSelectedAns = 'a';
     answerQuestion(userSelectedAns, currentCorrectAns);
@@ -68,71 +124,12 @@ answerDEl.addEventListener("click", function() {
     console.log(userSelectedAns);
 });
 
-// function will compare the selected answer to the correct answer
-function answerQuestion (user, answer) {
-
-    if (user === answer){
-        console.log("YOU DID IT CORRECTLY");
-        // TODO: add points
-        score += secondsLeft;
-        questionIndex++;
-        renderCurrentQuestion();
-        // TODO: move on to next question
-    } else {
-        console.log("YOU FAILED MISERABLY");
-        // TODO: remove time
-        secondsLeft -= 15;
-        questionIndex++;
-        renderCurrentQuestion();
-        // TODO: move on to next question
-    }
-
-};
-
-// this function takes the current question data from the quiz questions array and displays it on the page
-function renderCurrentQuestion() {
-    // TODO: add check on quiz index, endgame if at max index
-    currentCorrectAns = quizQuestions[questionIndex].correct;
-    questionTextEl.textContent = quizQuestions[questionIndex].question; // injects the question into the h1 element
-    answerAEl.textContent = quizQuestions[questionIndex].a; // injects the answers into the buttons
-    answerBEl.textContent = quizQuestions[questionIndex].b;
-    answerCEl.textContent = quizQuestions[questionIndex].c;
-    answerDEl.textContent = quizQuestions[questionIndex].d;
-};
-
-// this function counts the timer down and displays it in the top
-function startTimer () {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        console.log("Current score is " + score);
-        timerTextEl.textContent = "Timer: " + secondsLeft;
-        if (secondsLeft <= 0) {
-            clearInterval(timerInterval);
-            // run end game function
-        }
-    }, 1000);
-};
-
-// this function starts the game, hides the starting page and calls the timer function
-function startGame() {
-    startPage.style.display = "none";
-    questionPage.style.display = "block";
-    secondsLeft = 100;
-    questionIndex = 0;
-    renderCurrentQuestion();
-    startTimer();
-}
-
-// start button runs the startGame fuction when clicked
-startButtonEl.addEventListener("click", function() {
-    startGame();
-});
-
 
 // declare variables and arrays of quiz questions
 // declare a `questionIndex` to point to the current question
 
 // create `endGame` function
+    // clears timer
 
 // Create `startGame` function
     // call `startTimer`
