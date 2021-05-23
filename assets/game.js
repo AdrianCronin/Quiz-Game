@@ -1,4 +1,4 @@
-var questionList = [
+var quizQuestions = [
     {
         question: "What hand does Roger Federer play with?",
         a: "Left",
@@ -29,11 +29,22 @@ var questionList = [
         correct: "a",
     }
 ];
+console.log(quizQuestions[0].question); // testing 
 
-console.log(questionList[0].question);
+var questionIndex = 0;
+var questionContainerEl = document.getElementById("questionContainer");
+
+// this function takes the current question data from the quiz questions array and displays it on the page
+function renderCurrentQuestion() {
+    var headingOne = document.createElement("h1");
+    headingOne.textContent = quizQuestions[questionIndex].question;
+    questionContainerEl.appendChild(headingOne);
+};
+
+renderCurrentQuestion();
+
 
 var startButton = document.querySelector("#startButton");
-
 // start button hides starting page section and shows quiz section
 startButton.addEventListener("click", function(event) {
     console.log("start button worked");
