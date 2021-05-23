@@ -44,6 +44,8 @@ var submitButtonEl = document.getElementById("submitButton");
 var timerTextEl = document.getElementById("timerText");
 var currentCorrectAns = ""; // store the current questions correct answer
 var userSelectedAns = ""; // store the users selected answer
+var timerInterval; // store the interval 
+
 
 // TODO: create `endGame` function
     // clears timer
@@ -58,7 +60,9 @@ submitButtonEl.addEventListener("click", function(event) {
 
 function endGame (){
     console.log("Endgame function called");
-    clearInterval();
+    clearInterval(timerInterval);
+    secondsLeft = 0;
+    timerTextEl.textContent = "Timer: " + secondsLeft;
     // submitPage.style.display = "block";
     // questionPage.style.display = "none";
 };
@@ -95,7 +99,7 @@ function renderCurrentQuestion() {
 
 // this function counts the timer down and displays it in the top
 function startTimer () {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         secondsLeft--;
         console.log("Current score is " + score); //delete
         timerTextEl.textContent = "Timer: " + secondsLeft;
