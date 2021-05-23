@@ -14,14 +14,14 @@ var questionList = [
         d:"Australian Open",
         correct:"c",
     }, {
-        question: "What type of sword is Roger's infamous 'Sneak Attack by Roger' named after?",
+        question: "What type of sword is Roger Federer's infamous 'Sneak Attack by Roger' named after?",
         a: "Bastard Sword",
         b: "Katana",
         c: "Gladius",
         d: "Saber",
         correct: "d",
     }, {
-        question: "",
+        question: "Which Olympics did Roger Federer win a Gold Medal?",
         a: "Beijing 2008",
         b: "London 2012",
         c: "Rio 2016",
@@ -29,6 +29,9 @@ var questionList = [
         correct: "a",
     }
 ];
+
+console.log(questionList[0].question);
+
 var startButton = document.querySelector("#startButton");
 
 // start button hides starting page section and shows quiz section
