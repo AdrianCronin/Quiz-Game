@@ -73,8 +73,13 @@ function answerQuestion (user, answer) {
 
     if (user === answer){
         console.log("YOU DID IT CORRECTLY");
+        // TODO: add points
+        score += secondsLeft;
+        // TODO: move on to next question
     } else {
         console.log("YOU FAILED MISERABLY");
+        // TODO: remove time
+        // TODO: move on to next question
     }
 
 };
@@ -82,7 +87,6 @@ function answerQuestion (user, answer) {
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
     currentCorrectAns = quizQuestions[questionIndex].correct;
-    console.log(currentCorrectAns);
     questionTextEl.textContent = quizQuestions[questionIndex].question; // injects the question into the h1 element
     answerAEl.textContent = quizQuestions[questionIndex].a; // injects the answers into the buttons
     answerBEl.textContent = quizQuestions[questionIndex].b;
@@ -94,6 +98,7 @@ function renderCurrentQuestion() {
 function startTimer () {
     var timerInterval = setInterval(function() {
         secondsLeft--;
+        console.log("Current score is " + score);
         timerTextEl.textContent = "Timer: " + secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
