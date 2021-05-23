@@ -29,7 +29,6 @@ var quizQuestions = [
         correct: "a",
     }
 ];
-console.log(quizQuestions[0].question); // testing 
 
 var questionIndex = 0;
 var questionContainerEl = document.getElementById("questionContainer");
@@ -38,24 +37,21 @@ var answerAEl = document.getElementById("answerA");
 var answerBEl = document.getElementById("answerB");
 var answerCEl = document.getElementById("answerC"); 
 var answerDEl = document.getElementById("answerD");
+var startButtonEl = document.querySelector("#startButton");
 
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
-    // makes the question an h1 element
-    questionTextEl.textContent = quizQuestions[questionIndex].question;
-    // TODO: make answer buttons?
-    answerAEl.textContent = quizQuestions[questionIndex].a;
+    questionTextEl.textContent = quizQuestions[questionIndex].question; // injects the question into the h1 element
+    answerAEl.textContent = quizQuestions[questionIndex].a; // injects the answers into the buttons
     answerBEl.textContent = quizQuestions[questionIndex].b;
     answerCEl.textContent = quizQuestions[questionIndex].c;
     answerDEl.textContent = quizQuestions[questionIndex].d;
 };
-
 renderCurrentQuestion();
 
 
-var startButton = document.querySelector("#startButton");
 // start button hides starting page section and shows quiz section
-startButton.addEventListener("click", function(event) {
+startButtonEl.addEventListener("click", function(event) {
     console.log("start button worked");
     startPage.style.display = "none";
     // startPage.setAttribute("style", "display: none;");
