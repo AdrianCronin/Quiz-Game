@@ -36,9 +36,11 @@ var questionContainerEl = document.getElementById("questionContainer");
 
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
-    var headingOne = document.createElement("h1");
-    headingOne.textContent = quizQuestions[questionIndex].question;
-    questionContainerEl.appendChild(headingOne);
+    // makes the question an h1 element
+    var questionTextEl = document.getElementById("questionText");
+    questionTextEl.textContent = quizQuestions[questionIndex].question;
+    // TODO: make answer buttons?
+    
 };
 
 renderCurrentQuestion();
