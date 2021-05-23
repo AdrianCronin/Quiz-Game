@@ -30,15 +30,16 @@ var quizQuestions = [
     }
 ];
 
-var secondsLeft = 100;
-var questionIndex = 0;
+var secondsLeft = 100; // intial timer value
+var score = 0;
+var questionIndex = 0; // will use this variable to point to array indexes
 var questionContainerEl = document.getElementById("questionContainer");
 var questionTextEl = document.getElementById("questionText");
 var answerAEl = document.getElementById("answerA");
 var answerBEl = document.getElementById("answerB");
 var answerCEl = document.getElementById("answerC"); 
 var answerDEl = document.getElementById("answerD");
-var startButtonEl = document.querySelector("#startButton");
+var startButtonEl = document.getElementById("startButton");
 var timerTextEl = document.getElementById("timerText");
 
 // this function takes the current question data from the quiz questions array and displays it on the page
@@ -49,10 +50,9 @@ function renderCurrentQuestion() {
     answerCEl.textContent = quizQuestions[questionIndex].c;
     answerDEl.textContent = quizQuestions[questionIndex].d;
 };
-renderCurrentQuestion(); // delete this later
 
-// this function is the timer
-function countDown () {
+// this function counts the timer down and displays it in the top
+function startTimer () {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timerTextEl.textContent = "Timer: " + secondsLeft;
@@ -69,7 +69,7 @@ function countDown () {
 startButtonEl.addEventListener("click", function(event) {
     startPage.style.display = "none";
     questionPage.style.display = "block";
-    countDown();
+    startTimer();
 });
 
 
