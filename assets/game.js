@@ -81,6 +81,9 @@ function answerQuestion (user, answer) {
     } else {
         console.log("YOU FAILED MISERABLY");
         // TODO: remove time
+        secondsLeft -= 15;
+        questionIndex++;
+        renderCurrentQuestion();
         // TODO: move on to next question
     }
 
@@ -103,7 +106,7 @@ function startTimer () {
         secondsLeft--;
         console.log("Current score is " + score);
         timerTextEl.textContent = "Timer: " + secondsLeft;
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             // run end game function
         }
