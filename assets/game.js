@@ -42,8 +42,36 @@ var answerDEl = document.getElementById("answerD");
 var startButtonEl = document.getElementById("startButton");
 var timerTextEl = document.getElementById("timerText");
 
+// TODO: create a function that stores the user input and compares it to the current correct answer
+var currentCorrectAns = ""; // store the current questions correct answer
+var userSelectedAns = ""; // store the users selected answer
+
+// store users answer on button press
+answerAEl.addEventListener("click", function() {
+    userSelectedAns = 'a';
+    console.log(userSelectedAns);
+});
+answerBEl.addEventListener("click", function() {
+    userSelectedAns = 'b';
+    console.log(userSelectedAns);
+});
+answerCEl.addEventListener("click", function() {
+    userSelectedAns = 'c';
+    console.log(userSelectedAns);
+});
+answerDEl.addEventListener("click", function() {
+    userSelectedAns = 'd';
+    console.log(userSelectedAns);
+});
+
+function answerQuestion () {
+
+};
+
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
+    currentCorrectAns = quizQuestions[questionIndex].correct;
+    console.log(currentCorrectAns);
     questionTextEl.textContent = quizQuestions[questionIndex].question; // injects the question into the h1 element
     answerAEl.textContent = quizQuestions[questionIndex].a; // injects the answers into the buttons
     answerBEl.textContent = quizQuestions[questionIndex].b;
@@ -56,7 +84,6 @@ function startTimer () {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timerTextEl.textContent = "Timer: " + secondsLeft;
-
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             // run end game function
@@ -73,7 +100,7 @@ function startGame() {
     startTimer();
 }
 
-// start button hides starting page section and shows quiz section
+// start button runs the startGame fuction when clicked
 startButtonEl.addEventListener("click", function() {
     startGame();
 });
