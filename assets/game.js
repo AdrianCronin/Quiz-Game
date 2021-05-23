@@ -33,14 +33,21 @@ console.log(quizQuestions[0].question); // testing
 
 var questionIndex = 0;
 var questionContainerEl = document.getElementById("questionContainer");
+var questionTextEl = document.getElementById("questionText");
+var answerAEl = document.getElementById("answerA");
+var answerBEl = document.getElementById("answerB");
+var answerCEl = document.getElementById("answerC"); 
+var answerDEl = document.getElementById("answerD");
 
 // this function takes the current question data from the quiz questions array and displays it on the page
 function renderCurrentQuestion() {
     // makes the question an h1 element
-    var questionTextEl = document.getElementById("questionText");
     questionTextEl.textContent = quizQuestions[questionIndex].question;
     // TODO: make answer buttons?
-    
+    answerAEl.textContent = quizQuestions[questionIndex].a;
+    answerBEl.textContent = quizQuestions[questionIndex].b;
+    answerCEl.textContent = quizQuestions[questionIndex].c;
+    answerDEl.textContent = quizQuestions[questionIndex].d;
 };
 
 renderCurrentQuestion();
