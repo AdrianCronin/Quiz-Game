@@ -49,22 +49,33 @@ var userSelectedAns = ""; // store the users selected answer
 // store users answer on button press
 answerAEl.addEventListener("click", function() {
     userSelectedAns = 'a';
+    answerQuestion(userSelectedAns, currentCorrectAns);
     console.log(userSelectedAns);
 });
 answerBEl.addEventListener("click", function() {
     userSelectedAns = 'b';
+    answerQuestion(userSelectedAns, currentCorrectAns);
     console.log(userSelectedAns);
 });
 answerCEl.addEventListener("click", function() {
     userSelectedAns = 'c';
+    answerQuestion(userSelectedAns, currentCorrectAns);
     console.log(userSelectedAns);
 });
 answerDEl.addEventListener("click", function() {
     userSelectedAns = 'd';
+    answerQuestion(userSelectedAns, currentCorrectAns);
     console.log(userSelectedAns);
 });
 
-function answerQuestion () {
+// function will compare the selected answer to the correct answer
+function answerQuestion (user, answer) {
+
+    if (user === answer){
+        console.log("YOU DID IT CORRECTLY");
+    } else {
+        console.log("YOU FAILED MISERABLY");
+    }
 
 };
 
