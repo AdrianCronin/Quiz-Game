@@ -1,3 +1,34 @@
+var questionList = [
+    {
+        question: "What hand does Roger Federer play with?",
+        a: "Left",
+        b: "Right",
+        c: "Ambidextrous",
+        d: "Neither",
+        correct: "b",
+    }, {
+        question: "Which Grand Slam has Roger Federer had the most success at?",
+        a:"French Open",
+        b:"US Open",
+        c:"Wimbledon",
+        d:"Australian Open",
+        correct:"c",
+    }, {
+        question: "What type of sword is Roger's infamous 'Sneak Attack by Roger' named after?",
+        a: "Bastard Sword",
+        b: "Katana",
+        c: "Gladius",
+        d: "Saber",
+        correct: "d",
+    }, {
+        question: "",
+        a: "Beijing 2008",
+        b: "London 2012",
+        c: "Rio 2016",
+        d: "Tokyo 2020",
+        correct: "a",
+    }
+];
 var startButton = document.querySelector("#startButton");
 
 // start button hides starting page section and shows quiz section
