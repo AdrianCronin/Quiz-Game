@@ -60,13 +60,13 @@ submitButtonEl.addEventListener("click", function(event) {
 });
 
 function endGame (){
+    submitPage.style.display = "block";
+    questionPage.style.display = "none";
     console.log("Endgame function called");
     clearInterval(timerInterval);
     secondsLeft = 0;
     timerTextEl.textContent = "Timer: " + secondsLeft;
     endScoreEl.textContent = "Your Score: " + score;
-    // submitPage.style.display = "block";
-    // questionPage.style.display = "none";
 };
 
 
