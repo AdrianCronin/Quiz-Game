@@ -1,1 +1,2 @@
-console.log(userInitials);
+console.log(savedScore);
+

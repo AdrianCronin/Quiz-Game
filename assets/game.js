@@ -48,14 +48,23 @@ var currentCorrectAns = ""; // stores the current questions correct answer
 var userSelectedAns = ""; // stores the users selected answer
 var timerInterval; // stores the interval
 var userInitials;  // Stores user's initials input for their score
+var savedScore = {initials: "", score: "",};
+
+// function to store score
+function storeScore() {
+    userInitials = scoreInitialsEl.value.trim();
+    savedScore.initials = userInitials;
+    savedScore.score = score;
+    console.log(savedScore);
+    localStorage.setItem("highScore", JSON.stringify(savedScore));
+};
 
 
 // Runs when submit button or enter is pressed
 submitFormEl.addEventListener("submit", function(event) {
     event.preventDefault();
-    userInitials = scoreInitialsEl.value.trim();
-    console.log(userInitials);
-    window.open("/highscore.html", "_blank");
+    storeScore();
+    // window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
     // save initials to object?
     // TODO: add check for blank strings
     // save score to object?
