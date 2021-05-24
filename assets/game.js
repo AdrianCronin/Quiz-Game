@@ -50,6 +50,25 @@ var timerInterval; // stores the interval
 var userInitials;  // Stores user's initials input for their score
 var savedScore = {initials: "", score: "",};
 
+var scoreTest = [
+    {
+        initials: "abc",
+        score: 69
+    },{
+        initials: "tlc",
+        score: 43 
+    },{
+        initials: "MP",
+        score: 420
+    },{
+        initials: "bLc",
+        score: 33
+    },{
+        initials: "JC",
+        score: 123
+    }
+];
+
 // function to store score
 function storeScore() {
     userInitials = scoreInitialsEl.value.trim();
