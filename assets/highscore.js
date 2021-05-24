@@ -27,11 +27,12 @@ function sortScores () {
     for (a=0; a < length; a++) {
         points = scoreTest[a].score; 
         for (i=(a+1); i < length; i++){
+            // this loops tests if any following indexs is greater than the targeted index and moves it to that index if true
             if (scoreTest[i].score > points) {
                 var x = scoreTest[i]; // stores the index value
                 scoreTest.splice(i, 1); // removes the index from array
                 scoreTest.splice(a, 0, x); // places stored index value into the `a` index 
-                points = scoreTest[a].score;
+                points = scoreTest[a].score; // sets the new variable to the new value
             };
         };
     };
