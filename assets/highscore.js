@@ -1,35 +1,37 @@
 var scoreTest = [
     {
         initials: "abc",
-        score: 69
+        score: 4
     },{
         initials: "tlc",
-        score: 43 
+        score: 2 
     },{
         initials: "MP",
-        score: 420
+        score: 1
     },{
         initials: "bLc",
-        score: 33
+        score: 3
     },{
         initials: "JC",
-        score: 123
+        score: 5
     }
 ];
 
 // function will sort the scores from highest to lowest
 function sortScores () {
     var length = scoreTest.length; 
-    var top = scoreTest[0].score; 
-    for (i=0; i < length; i++){
-        if (scoreTest[i].score > top) {
-            var x = scoreTest[i];
-            scoreTest.splice(i, 1);
-            scoreTest.unshift(x);
-            top = scoreTest[0];
+    var points;
+    for (a=0; a < length; a++) {
+        points = scoreTest[a].score; 
+        for (i=(a+1); i < length; i++){
+            if (scoreTest[i].score > points) {
+                var x = scoreTest[i];
+                scoreTest.splice(i, 1);
+                scoreTest.splice(a, 0, x);
+                points = scoreTest[a].score;
+            };
         };
     };
-    
 };
 
 var scoreListEl = document.getElementById("scoreList");
@@ -45,6 +47,6 @@ function renderScores() {
         scoreListEl.appendChild(li);
     };
 };
-
-renderScores();
 sortScores();
+renderScores();
+console.log(scoreTest);
