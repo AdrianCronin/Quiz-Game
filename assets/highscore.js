@@ -17,24 +17,26 @@ var scoreTest = [
     }
 ];
 
+var scoreListEl = document.getElementById("scoreList");
+
 // function will sort the scores from highest to lowest
 function sortScores () {
     var length = scoreTest.length; 
     var points;
+    // this loop will point at an index then compare the score value to every other index
     for (a=0; a < length; a++) {
         points = scoreTest[a].score; 
         for (i=(a+1); i < length; i++){
             if (scoreTest[i].score > points) {
-                var x = scoreTest[i];
-                scoreTest.splice(i, 1);
-                scoreTest.splice(a, 0, x);
+                var x = scoreTest[i]; // stores the index value
+                scoreTest.splice(i, 1); // removes the index from array
+                scoreTest.splice(a, 0, x); // places stored index value into the `a` index 
                 points = scoreTest[a].score;
             };
         };
     };
 };
 
-var scoreListEl = document.getElementById("scoreList");
 // creates li elements for the initials and scores
 function renderScores() {
     scoreListEl.innerHTML = ""; //delete existing highscore list
