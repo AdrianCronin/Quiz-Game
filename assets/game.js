@@ -44,15 +44,16 @@ var submitFormEl = document.getElementById("submitForm");
 var timerTextEl = document.getElementById("timerText");
 var endScoreEl = document.getElementById("endScore");
 var scoreInitialsEl = document.getElementById("scoreInitials");
-var currentCorrectAns = ""; // store the current questions correct answer
-var userSelectedAns = ""; // store the users selected answer
-var timerInterval; // store the interval 
+var currentCorrectAns = ""; // stores the current questions correct answer
+var userSelectedAns = ""; // stores the users selected answer
+var timerInterval; // stores the interval
+var userInitials;  // Stores user's initials input for their score
 
 
 // Runs when submit button or enter is pressed
 submitFormEl.addEventListener("submit", function(event) {
     event.preventDefault();
-    var userInitials = scoreInitialsEl.value.trim();
+    userInitials = scoreInitialsEl.value.trim();
     console.log(userInitials);
     // save initials to object?
     // save score to object?
