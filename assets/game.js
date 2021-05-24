@@ -55,7 +55,9 @@ submitFormEl.addEventListener("submit", function(event) {
     event.preventDefault();
     userInitials = scoreInitialsEl.value.trim();
     console.log(userInitials);
+    window.open("/highscore.html", "_blank");
     // save initials to object?
+    // TODO: add check for blank strings
     // save score to object?
     // got to highscores page
 });
