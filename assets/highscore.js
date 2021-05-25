@@ -45,8 +45,5 @@ function renderScores() {
     };
 };
 
-//TODO: Create clear scores button
-//TODO: create go back button
-
 sortScores();
 renderScores();
