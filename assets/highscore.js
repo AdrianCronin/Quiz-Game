@@ -35,9 +35,11 @@ function renderScores() {
     };
 };
 
-// button clears the scores from local storage
+// button clears the scores from local storage and the array and renders
 clearButtonEl.addEventListener("click", function() {
     localStorage.clear();
+    sortList = []; 
+    renderScores();
 });
 
 // button takes user back to game page
