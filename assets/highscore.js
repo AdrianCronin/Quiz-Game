@@ -1,5 +1,15 @@
 var scoreListEl = document.getElementById("scoreList");
 var sortList = JSON.parse(localStorage.getItem("highScore")); // gets the list of initials and high scores out of storage
+var clearButtonEl = document.getElementById('clearButton');
+var returnButtonEl = document.getElementById('returnButton');
+
+clearButtonEl.addEventListener("click", function() {
+
+});
+
+returnButtonEl.addEventListener("click", function() {
+
+});
 
 // function will sort the scores from highest to lowest
 function sortScores () {
@@ -32,6 +42,9 @@ function renderScores() {
         scoreListEl.appendChild(li);
     };
 };
+
+//TODO: Create clear scores button
+//TODO: create go back button
 
 sortScores();
 renderScores();
