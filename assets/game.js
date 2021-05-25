@@ -52,6 +52,9 @@ var userInitials; // store user input
 // function to save the score/initials into local storage
 function storeScore() {
     var currentList = JSON.parse(localStorage.getItem("highScore")); // get current list out of localStorage with JSON and save to an array
+    if (currentList == null) {
+        currentList = []; // if there was nothing save in storage convert variable to an array instead of null
+    };
     var savedScore = {initials: "", score: "",}; // creates an object to save the user inputs to
     savedScore.initials = userInitials; // saves user initials to the object
     savedScore.score = score; // saves the users score to the object
