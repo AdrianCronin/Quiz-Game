@@ -49,51 +49,15 @@ var userSelectedAns = ""; // stores the users selected answer
 var timerInterval; // stores the interval
 var userInitials; // store user input
 
-// testing function delete
-function jsonTesting() {
-    var scoreTest = [
-        {
-            initials: "abc",
-            score: 4
-        },{
-            initials: "tlc",
-            score: 2 
-        },{
-            initials: "MP",
-            score: 1
-        },{
-            initials: "bLc",
-            score: 3
-        },{
-            initials: "JC",
-            score: 5
-        }
-    ];
-    localStorage.setItem('highScore', JSON.stringify(scoreTest));
-};
-
 // function to save the score/initials into local storage
 function storeScore() {
     var currentList = JSON.parse(localStorage.getItem("highScore")); // get current list out of localStorage with JSON and save to an array
-    var savedScore = {initials: "", score: "",}; // creates an object to save the user input to
-    savedScore.initials = userInitials;
-    savedScore.score = score;
+    var savedScore = {initials: "", score: "",}; // creates an object to save the user inputs to
+    savedScore.initials = userInitials; // saves user initials to the object
+    savedScore.score = score; // saves the users score to the object
     currentList.push(savedScore); // pushes the new object onto the array from JSON
     localStorage.setItem("highScore", JSON.stringify(currentList)); // save the final array into storage with JSON
 };
-
-// Runs when submit button or enter is pressed
-submitFormEl.addEventListener("submit", function sumbmitScore(event) {
-    event.preventDefault();
-    userInitials = scoreInitialsEl.value.trim();
-    if (userInitials === "") {
-        alert("Please enter your initials to record your score"); // alerts the user if they enter nothing
-        sumbmitScore(); 
-    } else {
-        storeScore();
-        window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
-    };
-});
 
 //  this function runs if time has run out or the last question has been answered
 function endGame (){
@@ -144,7 +108,7 @@ function startTimer () {
     }, 1000);
 };
 
-// this function starts the game, hides the starting page and calls the timer function
+// this function starts the game, hides the starting, starts the timer, and shows the quiz page
 function startGame() {
     startPage.style.display = "none";
     questionPage.style.display = "block";
@@ -154,11 +118,25 @@ function startGame() {
     renderCurrentQuestion();
 };
 
+// Runs when submit button or enter is pressed
+submitFormEl.addEventListener("submit", function sumbmitScore(event) {
+    event.preventDefault(); // prevent page refresh
+    userInitials = scoreInitialsEl.value.trim(); // remove any extra whitespace from the input
+    if (userInitials === "") {
+        alert("Please enter your initials to record your score"); // alerts the user if they enter nothing and reruns
+        sumbmitScore(); 
+    } else {
+        storeScore(); 
+        window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
+    };
+});
+
 // start button runs the startGame fuction when clicked
 startButtonEl.addEventListener("click", function() {
     startGame();
 });
-// store users answer on button press and runs the answerQuestion function passing the user selected answer and the correct answer from the array as arguments
+
+// store users answer on button press and runs the answerQuestion function passing the user selected answer and the correct answer from the quiz array as arguments
 answerAEl.addEventListener("click", function() {
     userSelectedAns = 'a';
     answerQuestion(userSelectedAns, currentCorrectAns);
