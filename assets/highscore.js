@@ -1,6 +1,5 @@
 var scoreListEl = document.getElementById("scoreList");
 var sortList = JSON.parse(localStorage.getItem("highScore"));
-console.log(sortList);
 
 // function will sort the scores from highest to lowest
 function sortScores () {

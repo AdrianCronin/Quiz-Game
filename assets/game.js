@@ -47,7 +47,9 @@ var scoreInitialsEl = document.getElementById("scoreInitials");
 var currentCorrectAns = ""; // stores the current questions correct answer
 var userSelectedAns = ""; // stores the users selected answer
 var timerInterval; // stores the interval
+var userInitials; // store user input
 
+// testing function delete
 function jsonTesting() {
     var scoreTest = [
         {
@@ -70,27 +72,16 @@ function jsonTesting() {
     localStorage.setItem('highScore', JSON.stringify(scoreTest));
 };
 
-
-
 // function to save the score/initials into local storage
-    // get current list out of localStorage with JSON
-    // save that object to an array  
-    // create new object with current input values
-    // push new object onto array
-    // stringify array and re-save to local storage  
 function storeScore() {
-    jsonTesting();
-    var currentList = JSON.parse(localStorage.getItem("highScore"));
-    console.log(currentList);
-    var userInitials = scoreInitialsEl.value.trim();
-    var savedScore = {initials: "", score: "",};
+    var currentList = JSON.parse(localStorage.getItem("highScore")); // get current list out of localStorage with JSON and save to an array
+    userInitials = scoreInitialsEl.value.trim();
+    var savedScore = {initials: "", score: "",}; // creates an object to save the user input to
     savedScore.initials = userInitials;
     savedScore.score = score;
-    currentList.push(savedScore);
-    console.log(currentList);
-    localStorage.setItem("highScore", JSON.stringify(currentList));
+    currentList.push(savedScore); // pushes the new object onto the array from JSON
+    localStorage.setItem("highScore", JSON.stringify(currentList)); // save the final array into storage with JSON
 };
-
 
 // Runs when submit button or enter is pressed
 submitFormEl.addEventListener("submit", function(event) {
