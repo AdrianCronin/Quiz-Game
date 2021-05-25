@@ -3,16 +3,6 @@ var sortList = JSON.parse(localStorage.getItem("highScore")); // gets the list o
 var clearButtonEl = document.getElementById('clearButton');
 var returnButtonEl = document.getElementById('returnButton');
 
-// button clears the scores from local storage
-clearButtonEl.addEventListener("click", function() {
-    localStorage.clear();
-});
-
-// button takes user back to game page
-returnButtonEl.addEventListener("click", function() {
-    window.open("/index.html", "_self");
-});
-
 // function will sort the scores from highest to lowest
 function sortScores () {
     var length = sortList.length; 
@@ -44,6 +34,16 @@ function renderScores() {
         scoreListEl.appendChild(li);
     };
 };
+
+// button clears the scores from local storage
+clearButtonEl.addEventListener("click", function() {
+    localStorage.clear();
+});
+
+// button takes user back to game page
+returnButtonEl.addEventListener("click", function() {
+    window.open("/index.html", "_self");
+});
 
 sortScores();
 renderScores();
