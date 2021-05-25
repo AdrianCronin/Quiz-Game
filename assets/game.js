@@ -87,28 +87,22 @@ submitFormEl.addEventListener("submit", function sumbmitScore(event) {
     event.preventDefault();
     userInitials = scoreInitialsEl.value.trim();
     if (userInitials === "") {
-        alert("Please enter your initials to record your score");
-        sumbmitScore();
+        alert("Please enter your initials to record your score"); // alerts the user if they enter nothing
+        sumbmitScore(); 
     } else {
         storeScore();
         window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
-        // TODO: add check for blank strings
     };
 });
 
-//create `endGame` function
-    // clears timer
-    // hides the quiz page
-    // shows the game over screen
-    // shows final score
-    // takes user input and saves to highscore page
+//  this function runs if time has run out or the last question has been answered
 function endGame (){
-    clearInterval(timerInterval);
-    submitPage.style.display = "block";
-    questionPage.style.display = "none";
-    secondsLeft = 0;
-    timerTextEl.textContent = "Timer: " + secondsLeft;
-    endScoreEl.textContent = "Your Score: " + score;
+    clearInterval(timerInterval); // clears timer
+    submitPage.style.display = "block"; // shows the game over screen
+    questionPage.style.display = "none"; // hides the quiz page
+    secondsLeft = 0; // sets this to 0 in cases where time did not run out
+    timerTextEl.textContent = "Timer: " + secondsLeft; // updates timer to show 0
+    endScoreEl.textContent = "Your Score: " + score; // renders the final score to the page
 };
 
 // function will compare the selected answer to the correct answer
