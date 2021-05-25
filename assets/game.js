@@ -33,7 +33,7 @@ var quizQuestions = [
 var secondsLeft = 100; // intial timer value
 var score = 0;
 var questionIndex = 0; // will use this variable to point to array indexes
-var questionContainerEl = document.getElementById("questionContainer"); // parent to the buttons but not called anywhere
+var questionContainerEl = document.getElementById("questionContainer"); // parent to the buttons but not referenced anywhere
 var questionTextEl = document.getElementById("questionText");
 var answerAEl = document.getElementById("answerA");
 var answerBEl = document.getElementById("answerB");
@@ -156,14 +156,3 @@ answerDEl.addEventListener("click", function() {
     userSelectedAns = 'd';
     answerQuestion(userSelectedAns, currentCorrectAns);
 });
-
-
-// create `answerQuestion` function (listen from a parent element)
-    // get the value associated with the clicked `button`
-    // compare against correct answer for the current question
-        // if correct...
-            // add points
-        // if incorrect...
-            // remove time
-            // kick out if time 0
-    // continue to next question `renderCurrentQuestion()`
