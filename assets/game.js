@@ -64,7 +64,7 @@ function storeScore() {
 submitFormEl.addEventListener("submit", function(event) {
     event.preventDefault();
     storeScore();
-    // window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
+    window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
     // save initials to object?
     // TODO: add check for blank strings
     // save score to object?

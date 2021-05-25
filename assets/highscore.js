@@ -26,8 +26,8 @@ function sortScores () {
     // this loop will point at an index then compare the score value to every other index
     for (a=0; a < length; a++) {
         points = scoreTest[a].score; 
-        for (i=(a+1); i < length; i++){
-            // this loops tests if any following indexs is greater than the targeted index and moves it to that index if true
+        for (i = (a + 1); i < length; i++){
+            // this loops tests if any following indexes are greater than the targeted index and moves it to that index if true
             if (scoreTest[i].score > points) {
                 var x = scoreTest[i]; // stores the index value
                 scoreTest.splice(i, 1); // removes the index from array
@@ -50,6 +50,6 @@ function renderScores() {
         scoreListEl.appendChild(li);
     };
 };
+
 sortScores();
 renderScores();
-console.log(scoreTest);
