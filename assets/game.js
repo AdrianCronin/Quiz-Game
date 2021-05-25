@@ -33,7 +33,7 @@ var quizQuestions = [
 var secondsLeft = 100; // intial timer value
 var score = 0;
 var questionIndex = 0; // will use this variable to point to array indexes
-var questionContainerEl = document.getElementById("questionContainer");
+var questionContainerEl = document.getElementById("questionContainer"); // parent to the buttons but not called anywhere
 var questionTextEl = document.getElementById("questionText");
 var answerAEl = document.getElementById("answerA");
 var answerBEl = document.getElementById("answerB");
@@ -130,7 +130,7 @@ submitFormEl.addEventListener("submit", function sumbmitScore(event) {
         sumbmitScore(); 
     } else {
         storeScore(); 
-        window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
+        window.open("/highscore.html", "_self"); // opens highscore.html on form submit in the current window, this prevents user from multiple submissions
     };
 });
 
@@ -158,18 +158,6 @@ answerDEl.addEventListener("click", function() {
 });
 
 
-// declare variables and arrays of quiz questions
-// declare a `questionIndex` to point to the current question
-
-// Create `startGame` function
-    // call `startTimer`
-    // hide the start screen
-    // show the first question
-
-// create a `startTimer` function
-    // set starting `score`
-    // start the timer counting down
-
 // create `answerQuestion` function (listen from a parent element)
     // get the value associated with the clicked `button`
     // compare against correct answer for the current question
@@ -179,6 +167,3 @@ answerDEl.addEventListener("click", function() {
             // remove time
             // kick out if time 0
     // continue to next question `renderCurrentQuestion()`
-
-// create `renderCurrentQuestion` function
-    // access the current question data from question[questionsIndex]
