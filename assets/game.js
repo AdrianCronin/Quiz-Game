@@ -75,7 +75,6 @@ function jsonTesting() {
 // function to save the score/initials into local storage
 function storeScore() {
     var currentList = JSON.parse(localStorage.getItem("highScore")); // get current list out of localStorage with JSON and save to an array
-    userInitials = scoreInitialsEl.value.trim();
     var savedScore = {initials: "", score: "",}; // creates an object to save the user input to
     savedScore.initials = userInitials;
     savedScore.score = score;
@@ -84,14 +83,17 @@ function storeScore() {
 };
 
 // Runs when submit button or enter is pressed
-submitFormEl.addEventListener("submit", function(event) {
+submitFormEl.addEventListener("submit", function sumbmitScore(event) {
     event.preventDefault();
-    storeScore();
-    window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
-    // save initials to object?
-    // TODO: add check for blank strings
-    // save score to object?
-    // got to highscores page
+    userInitials = scoreInitialsEl.value.trim();
+    if (userInitials === "") {
+        alert("Please enter your initials to record your score");
+        sumbmitScore();
+    } else {
+        storeScore();
+        window.open("/highscore.html", "_blank"); // TODO: close this to stop resubmitting or disable submit button
+        // TODO: add check for blank strings
+    };
 });
 
 //create `endGame` function
