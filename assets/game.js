@@ -64,7 +64,7 @@ function storeScore() {
 
 //  this function runs if time has run out or the last question has been answered
 function endGame (){
-    clearInterval(timerInterval); // clears timer
+    clearInterval(timerInterval); // clears timer here for situations when the game ends with time left
     submitPage.style.display = "block"; // shows the game over screen
     questionPage.style.display = "none"; // hides the quiz page
     secondsLeft = 0; // sets this to 0 in cases where time did not run out
@@ -102,11 +102,11 @@ function renderCurrentQuestion() {
 // this function counts the timer down and displays it in the top
 function startTimer () {
     timerInterval = setInterval(function() {
-        secondsLeft--;
+        secondsLeft--; // decrement every second
         console.log("Current score is " + score); //delete
-        timerTextEl.textContent = "Timer: " + secondsLeft;
+        timerTextEl.textContent = "Timer: " + secondsLeft; // display updated seconds left to page
         if (secondsLeft <= 0) {
-            endGame();
+            endGame(); // go to score submit page if time runs out
         };
     }, 1000);
 };
