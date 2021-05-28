@@ -31,8 +31,8 @@ var quizQuestions = [
 ];
 
 var secondsLeft = 100; // intial timer value
-var score = 0;
-var questionIndex = 0; // will use this variable to point to array indexes
+var score = 0; // initial score value
+var questionIndex = 0; // will use this variable to point to the quizQuestion index
 var questionContainerEl = document.getElementById("questionContainer"); // parent to the buttons but not referenced anywhere
 var questionTextEl = document.getElementById("questionText");
 var answerAEl = document.getElementById("answerA");

@@ -6,6 +6,15 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* setting variables for colors */
+:root {
+    --white: #FFFFFF;
+    --green: #1F7A8C;
+    --grey: #E1E5F2;
+    --blue: #BFDBF7;
+    --darkblue: #022B3A;
+}
+
 /* border around body for visualization delete later */
 body {
     border: 3px solid rgb(255, 0, 212);
