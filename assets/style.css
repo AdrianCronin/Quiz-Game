@@ -83,7 +83,8 @@ section {
 
 .mainCard {
     background-color: var(--grey);
-
+    height: 100%;
+    box-shadow: 0 8px 6px -6px black;
 }
 
 .mainCard h1 {
