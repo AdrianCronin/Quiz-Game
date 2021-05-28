@@ -85,7 +85,7 @@ function answerQuestion (user, answer) {
     if (questionIndex === quizQuestions.length) {
         endGame();
     } else {
-        renderCurrentQuestion();
+        renderCurrentQuestion(); // displays the next question to the page
     }
 };
 
@@ -104,9 +104,9 @@ function startTimer () {
     timerInterval = setInterval(function() {
         secondsLeft--; // decrement every second
         console.log("Current score is " + score); //delete
-        timerTextEl.textContent = "Timer: " + secondsLeft; // display updated seconds left to page
+        timerTextEl.textContent = "Timer: " + secondsLeft; // display updated seconds left to the page
         if (secondsLeft <= 0) {
-            endGame(); // go to score submit page if time runs out
+            endGame(); // go to score submit page if time runs out or an incorrect answer makes the seconds left go below 0
         };
     }, 1000);
 };
