@@ -137,13 +137,20 @@ section {
     color: var(--white);
 }
 
+/* this is the list of high scores */
 #scoreList {
     margin: 15px;
-    width: 20%;
+    width: 25%;
+}
+
+/* spreads the initials and score spans in the li's */
+#scoreList li {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* list of high scores has alternating background color for easier reading */
-#scoreList li:nth-child(even) {
+#scoreList li:nth-child(odd) {
     background-color: var(--grey);
 }
 

@@ -25,12 +25,18 @@ function sortScores () {
 // creates li elements for the initials and scores
 function renderScores() {
     scoreListEl.innerHTML = ""; //delete existing rendered highscore list
-    // for loop creates li's 
+    // for loop creates li's and spans
     for (i=0; i < sortList.length; i++) {
-        var inits = sortList[i].initials.toUpperCase();
+        var inits = (i+1) + ") " + sortList[i].initials.toUpperCase(); // puts the rank before the initials
         var points = sortList[i].score;
         var li = document.createElement("li");
-        li.textContent = inits + "  " + points;
+        var spanOne = document.createElement("span");
+        spanOne.textContent = inits; 
+        var spanTwo = document.createElement("span");
+        spanTwo.textContent = points;
+        // creating and appending spans so that I can justify space between the initials and score
+        li.appendChild(spanOne);
+        li.appendChild(spanTwo);
         scoreListEl.appendChild(li);
     };
 };
