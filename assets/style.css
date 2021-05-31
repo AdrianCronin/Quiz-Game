@@ -127,7 +127,7 @@ section {
 /* this is the list of high scores */
 #scoreList {
     margin: 15px;
-    width: 25%;
+    width: 33%;
 }
 
 /* spreads the initials and score spans in the li's */
@@ -164,7 +164,6 @@ section {
     /* main content section styles */
     section {
         width: 100%;
-        flex: 1;
     }
     .mainCard {
         box-shadow: unset;
@@ -174,4 +173,14 @@ section {
         border-radius: unset;
     }
 
+    /* high score page styles */
+    #scoreList {
+        width: 100%;
+    }
+    #scoreList li {
+        padding: 1px 15px;
+    }
+    .scoreHeader {
+        padding: 2px 5px;
+    }
 }
