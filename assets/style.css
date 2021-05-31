@@ -61,7 +61,7 @@ a {
     background-color: var(--grey);
     padding: 10px;
     border-radius: 5px;
-}
+    box-shadow: inset 0px 0px 5px 0px #000000;}
 
 /* start page section */
 div.row {
@@ -81,6 +81,7 @@ section {
     /* border: 3px solid red; */
 }
 
+/* this class is for the main content sections */
 .mainCard {
     background-color: var(--grey);
     height: 100%;
@@ -88,6 +89,7 @@ section {
     border-radius: 10px; 
 }
 
+/* title/question bar */
 .mainCard h1 {
     background-color: var(--darkblue);
     color: var(--grey);
@@ -97,4 +99,25 @@ section {
     text-align: center;
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
+    margin-bottom: 10px;
+}
+
+/* div container for the buttons */
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    width: 33.3333333%;    
+}
+
+.button {
+    margin: 5px 0px;
+    padding: 2px 10px;
+    background-color: var(--green);
+    color: var(--grey);
+    border-radius: 3px;
+}
+
+.button:hover {
+    background-color: #2696ac;
+    color: #d3d9ec;
 }

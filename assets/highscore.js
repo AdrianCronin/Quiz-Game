@@ -30,7 +30,7 @@ function renderScores() {
         var inits = sortList[i].initials.toUpperCase();
         var points = sortList[i].score;
         var li = document.createElement("li");
-        li.textContent = (i+1) + ") " + inits + "  " + points;
+        li.textContent = inits + "  " + points;
         scoreListEl.appendChild(li);
     };
 };
