@@ -30,7 +30,7 @@ var quizQuestions = [
     }
 ];
 
-var secondsLeft = 100; // intial timer value
+var secondsLeft = 0; // intial timer value
 var score = 0; // initial score value
 var questionIndex = 0; // will use this variable to point to the quizQuestion index
 var questionContainerEl = document.getElementById("questionContainer"); // parent to the buttons but not referenced anywhere
@@ -115,7 +115,7 @@ function startTimer () {
 function startGame() {
     startPage.style.display = "none";
     questionPage.style.display = "block";
-    secondsLeft = 999;
+    secondsLeft = 60;
     questionIndex = 0;
     startTimer();
     renderCurrentQuestion();
