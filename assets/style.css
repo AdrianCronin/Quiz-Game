@@ -149,3 +149,29 @@ section {
     background-color: var(--grey);
 }
 
+/* mobile styling below */
+@media screen and (max-width: 767px) {
+    /* score and timer styles */
+    .scoreBar {
+        padding: 0px;
+        flex: 0 0 240px;
+    }
+    .scoreBar p {
+        box-shadow: unset;
+        border-radius: unset;
+        background-color: unset;
+        color: var(--blue);
+    }
+    .scoreBar p:hover {
+        box-shadow: unset;
+    }
+    .scoreBar a {
+        color: var(--blue);
+    }
+
+    /* main content section styles */
+    section {
+
+    }
+
+}
