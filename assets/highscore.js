@@ -27,7 +27,7 @@ function renderScores() {
     scoreListEl.innerHTML = ""; //delete existing rendered highscore list
     // for loop creates li's and spans
     for (i=0; i < sortList.length; i++) {
-        var inits = (i+1) + ") " + sortList[i].initials.toUpperCase(); // puts the rank before the initials
+        var inits = (i+1) + ") " + sortList[i].initials.toUpperCase(); // puts the rank number before the initials
         var points = sortList[i].score;
         var li = document.createElement("li");
         var spanOne = document.createElement("span");
@@ -41,7 +41,7 @@ function renderScores() {
     };
 };
 
-// button clears the scores from local storage and the array and renders
+// button clears the scores from local storage and the array and renders blank list
 clearButtonEl.addEventListener("click", function() {
     localStorage.clear();
     sortList = []; 
@@ -53,5 +53,6 @@ returnButtonEl.addEventListener("click", function() {
     window.open("/index.html", "_self");
 });
 
+// sorts and renders the scores when the page loads
 sortScores();
 renderScores();
