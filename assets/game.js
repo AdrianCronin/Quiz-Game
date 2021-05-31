@@ -115,7 +115,7 @@ function startTimer () {
 function startGame() {
     startPage.style.display = "none";
     questionPage.style.display = "block";
-    secondsLeft = 100;
+    secondsLeft = 999;
     questionIndex = 0;
     startTimer();
     renderCurrentQuestion();
