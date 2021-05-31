@@ -36,7 +36,7 @@ header {
 
 /* hiding non-start page sections */
 #questionPage, #submitPage {
-    display: none;
+    display: block;
 }
 
 /* remove underline from links and set text color*/

@@ -29,16 +29,18 @@
     <section id="questionPage">
         <div class="row mainCard" id="questionContainer">
             <h1 id="questionText"></h1>
-            <button id="answerA"></button>
-            <button id="answerB"></button>
-            <button id="answerC"></button>
-            <button id="answerD"></button>
+            <div class="buttonContainer">
+                <button id="answerA"></button>
+                <button id="answerB"></button>
+                <button id="answerC"></button>
+                <button id="answerD"></button>
+            </div>
         </div>
     </section>
 
     <!-- submit highscore section -->
     <section id="submitPage">
-        <div class="row">
+        <div class="row mainCard">
             <h1>Game Over!</h1>
             <p id="endScore">Your score: </p>
             <form id="submitForm" method="POST">
