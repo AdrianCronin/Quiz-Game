@@ -1,6 +1,6 @@
 var quizQuestions = [
     {
-        question: "What hand does Roger Federer play with?",
+        question: "In what hand does Roger Federer hold a tennis racket?",
         a: "Left",
         b: "Right",
         c: "Ambidextrous",
