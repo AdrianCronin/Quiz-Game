@@ -36,7 +36,7 @@ header {
 
 /* hiding non-start page sections */
 #questionPage, #submitPage {
-    display: block;
+    display: none;
 }
 
 /* remove underline from links and set text color*/
@@ -61,7 +61,13 @@ a {
     background-color: var(--grey);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: inset 0px 0px 5px 0px #000000;}
+    box-shadow: inset 0px 0px 5px 0px #000000;
+}
+
+/* box shadow changes when hovering over the score bar items  */
+.scoreBar p:hover {
+    box-shadow: 0px 0px 5px 0px #000000;
+}
 
 /* start page section */
 div.row {
@@ -109,6 +115,7 @@ section {
     width: 33.3333333%;    
 }
 
+/* style the buttons to follow color palette */
 .button {
     margin: 5px 0px;
     padding: 2px 10px;
@@ -117,7 +124,26 @@ section {
     border-radius: 3px;
 }
 
+/* buttons get slightly lighter when hovered */
 .button:hover {
     background-color: #2696ac;
     color: #FFFFFF;
 }
+
+/* banner bar for high score page */
+.scoreHeader {
+    text-align: center;
+    background-color: var(--darkblue);
+    color: var(--white);
+}
+
+#scoreList {
+    margin: 15px;
+    width: 20%;
+}
+
+/* list of high scores has alternating background color for easier reading */
+#scoreList li:nth-child(even) {
+    background-color: var(--grey);
+}
+
