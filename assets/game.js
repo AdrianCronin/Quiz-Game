@@ -27,6 +27,27 @@ var quizQuestions = [
         c: "Rio 2016",
         d: "Tokyo 2020",
         correct: "a",
+    }, {
+        question: "How many languages does Roger Federer speak?",
+        a: "One",
+        b: "Two",
+        c: "Three",
+        d: "Four",
+        correct: "d",
+    }, {
+        question: "How many sets of twins do Roger and his wife have?",
+        a: "One",
+        b: "Two",
+        c: "Three",
+        d: "Four",
+        correct: "b",
+    }, {
+        question: "Which animal is commonly associated with Roger Federer?",
+        a: "Goat",
+        b: "Mamba",
+        c: "Capybara",
+        d: "Hawk",
+        correct: "a",
     }
 ];
 
