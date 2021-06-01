@@ -35,12 +35,12 @@ var quizQuestions = [
         d: "Four",
         correct: "d",
     }, {
-        question: "How many sets of twins do Roger and his wife have?",
+        question: "How many of Roger Federer's children are twins?",
         a: "One",
         b: "Two",
         c: "Three",
         d: "Four",
-        correct: "b",
+        correct: "d",
     }, {
         question: "Which animal is commonly associated with Roger Federer?",
         a: "Goat",
