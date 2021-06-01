@@ -54,6 +54,7 @@ var quizQuestions = [
 var secondsLeft = 0; // intial timer value
 var score = 0; // initial score value
 var questionIndex = 0; // will use this variable to point to the quizQuestion index
+var buttonContainerEl = document.querySelector(".buttonContainer"); // listens for any button press on the quiz section
 var questionTextEl = document.getElementById("questionText");
 var answerAEl = document.getElementById("answerA");
 var answerBEl = document.getElementById("answerB");
@@ -76,9 +77,9 @@ function storeScore() {
         currentList = []; // if there was nothing saved in storage convert `currentList` to an array instead of null
     };
     var savedScore = {initials: "", score: "",}; // creates an object to save the user inputs to
-    savedScore.initials = userInitials; // saves user initials to the object
-    savedScore.score = score; // saves the users score to the object
-    currentList.push(savedScore); // pushes the new object onto the array from JSON
+    savedScore.initials = userInitials; // saves user initials (from the submit function) to the object
+    savedScore.score = score; // saves the user's final score to the object
+    currentList.push(savedScore); // pushes the object onto the array from JSON
     localStorage.setItem("highScore", JSON.stringify(currentList)); // save the final array into storage with JSON
 };
 
@@ -90,23 +91,6 @@ function endGame (){
     secondsLeft = 0; // sets this to 0 in cases where time did not run out
     timerTextEl.textContent = "Timer: " + secondsLeft; // updates timer to show 0
     endScoreEl.textContent = "Your Score: " + score; // renders the final score to the page
-};
-
-// function will compare the selected answer to the correct answer
-function answerQuestion (user, answer) {
-    // adds points to score if correct, removes time left if incorrect.
-    if (user === answer){
-        score += secondsLeft;
-    } else {
-        secondsLeft -= 15;
-    }
-    questionIndex++; // moves pointer to next question
-    // if the pointer moves past the last question go to end game screen otherwise go to next question
-    if (questionIndex === quizQuestions.length) {
-        endGame();
-    } else {
-        renderCurrentQuestion(); // displays the next question to the page
-    }
 };
 
 // this function takes the current question data from the quiz questions array and displays it on the page
@@ -123,7 +107,6 @@ function renderCurrentQuestion() {
 function startTimer () {
     timerInterval = setInterval(function() {
         secondsLeft--; // decrement every second
-        console.log("Current score is " + score); //delete
         timerTextEl.textContent = "Timer: " + secondsLeft; // display updated seconds left to the page
         if (secondsLeft <= 0) {
             endGame(); // go to score submit page if time runs out or an incorrect answer makes the seconds left go below 0
@@ -163,20 +146,24 @@ startButtonEl.addEventListener("click", function() {
     startGame();
 });
 
-// store users answer on button press and runs the answerQuestion function passing the user selected answer and the correct answer from the quiz array as arguments
-answerAEl.addEventListener("click", function() {
-    userSelectedAns = 'a';
-    answerQuestion(userSelectedAns, currentCorrectAns);
-});
-answerBEl.addEventListener("click", function() {
-    userSelectedAns = 'b';
-    answerQuestion(userSelectedAns, currentCorrectAns);
-});
-answerCEl.addEventListener("click", function() {
-    userSelectedAns = 'c';
-    answerQuestion(userSelectedAns, currentCorrectAns);
-});
-answerDEl.addEventListener("click", function() {
-    userSelectedAns = 'd';
-    answerQuestion(userSelectedAns, currentCorrectAns);
+// when user presses an answer button adds points if correct, removes time if incorrect, moves to next question in both cases
+buttonContainerEl.addEventListener("click", function(event) {
+  var element = event.target;
+  if (element.matches(".button")) {
+    var userSelectedAns = element.getAttribute("data-answer"); // stores the data-answer attribute of the pressed button
+
+    if (userSelectedAns === currentCorrectAns) {
+        score += secondsLeft;
+    } else {
+      secondsLeft -= 5;
+    }
+    questionIndex++; // moves pointer to next question
+
+    // if the pointer moves past the last question go to end game screen otherwise go to next question
+    if (questionIndex === quizQuestions.length) {
+        endGame();
+    } else {
+        renderCurrentQuestion(); // displays the next question to the page
+    }
+  };
 });
