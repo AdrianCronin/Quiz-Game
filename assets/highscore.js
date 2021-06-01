@@ -7,7 +7,7 @@ var returnButtonEl = document.getElementById('returnButton');
 function sortScores () {
     var length = sortList.length; 
     var points;
-    // this loop will point at an index then compare the score value to every other index
+    // this nested loop will point at an index from storage then compare the score value to every other index's score value
     for (a=0; a < length; a++) {
         points = sortList[a].score; 
         for (i = (a + 1); i < length; i++){
@@ -24,7 +24,7 @@ function sortScores () {
 
 // creates li elements for the initials and scores
 function renderScores() {
-    scoreListEl.innerHTML = ""; //delete existing rendered highscore list
+    scoreListEl.innerHTML = ""; //clear existing rendered highscore list
     // for loop creates li's and spans
     for (i=0; i < sortList.length; i++) {
         var inits = (i+1) + ") " + sortList[i].initials.toUpperCase(); // puts the rank number before the initials
@@ -34,14 +34,14 @@ function renderScores() {
         spanOne.textContent = inits; 
         var spanTwo = document.createElement("span");
         spanTwo.textContent = points;
-        // creating and appending spans so that I can justify space between the initials and score
+        // creating and appending spans so that I can justify: space-between the initials and score
         li.appendChild(spanOne);
         li.appendChild(spanTwo);
         scoreListEl.appendChild(li);
     };
 };
 
-// button clears the scores from local storage and the array and renders blank list
+// button clears the scores from local storage and from the array and renders a blank list
 clearButtonEl.addEventListener("click", function() {
     localStorage.clear();
     sortList = []; 
