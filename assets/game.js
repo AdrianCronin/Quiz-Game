@@ -54,7 +54,6 @@ var quizQuestions = [
 var secondsLeft = 0; // intial timer value
 var score = 0; // initial score value
 var questionIndex = 0; // will use this variable to point to the quizQuestion index
-var questionContainerEl = document.getElementById("questionContainer"); // parent to the buttons but not referenced anywhere
 var questionTextEl = document.getElementById("questionText");
 var answerAEl = document.getElementById("answerA");
 var answerBEl = document.getElementById("answerB");
@@ -65,16 +64,16 @@ var submitFormEl = document.getElementById("submitForm");
 var timerTextEl = document.getElementById("timerText");
 var endScoreEl = document.getElementById("endScore");
 var scoreInitialsEl = document.getElementById("scoreInitials");
-var currentCorrectAns = ""; // stores the current questions correct answer
-var userSelectedAns = ""; // stores the users selected answer
+var currentCorrectAns = ""; // stores the targeted index question's correct answer
+var userSelectedAns = ""; // stores the user's selected answer to compare against the correct answer
 var timerInterval; // stores the interval
-var userInitials; // store user input
+var userInitials; // stores user's input for the high score page
 
 // function to save the score/initials into local storage
 function storeScore() {
     var currentList = JSON.parse(localStorage.getItem("highScore")); // get current list out of localStorage with JSON and save to an array
     if (currentList == null) {
-        currentList = []; // if there was nothing save in storage convert variable to an array instead of null
+        currentList = []; // if there was nothing saved in storage convert `currentList` to an array instead of null
     };
     var savedScore = {initials: "", score: "",}; // creates an object to save the user inputs to
     savedScore.initials = userInitials; // saves user initials to the object
