@@ -136,7 +136,7 @@ submitFormEl.addEventListener("submit", function sumbmitScore(event) {
         storeScore(); 
         window.open("/highscore.html", "_self"); // opens highscore.html on form submit in the current window, this prevents user from multiple submissions
     } else {
-        storeScore(); 
+        storeScore();
         window.open("/highscore.html", "_self"); 
     };
 });
