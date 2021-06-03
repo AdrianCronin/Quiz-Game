@@ -134,10 +134,10 @@ submitFormEl.addEventListener("submit", function sumbmitScore(event) {
     } else if (userInitials.length > 3) {
         userInitials = userInitials.slice(0, 3); // if the user enters more than 3 initials use only first 3 characters submitted
         storeScore(); 
-        window.open("/highscore.html", "_self"); // opens highscore.html on form submit in the current window, this prevents user from multiple submissions
+        window.open("./assets/highscore.html", "_self"); // opens highscore.html on form submit in the current window, this prevents user from multiple submissions
     } else {
         storeScore();
-        window.open("/highscore.html", "_self"); 
+        window.open("./assets/highscore.html", "_self"); 
     };
 });
 
