@@ -50,7 +50,7 @@ clearButtonEl.addEventListener("click", function() {
 
 // button takes user back to game page
 returnButtonEl.addEventListener("click", function() {
-    window.open("/index.html", "_self");
+    window.open("/Quiz-Game", "_self");
 });
 
 // sorts and renders the scores when the page loads
